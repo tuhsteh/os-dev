@@ -1,0 +1,22 @@
+1.  write a 512 byte file that starts with three bytes:
+	\xe9 \xfd \xff
+then pads with zeros (i.e. \x00), 
+then ends with 0xaa55.
+
+	$ printf "\xe9\xfd\xff" > looper.raw; 
+	$ for i in {4..510}; do printf "\x00" >> looper.raw; 
+	$ printf "\x55\xaa" >> looper.raw;
+ 
+
+2.  transmute the raw image to a floppy image.
+
+	$ dd conv=notrunc if=/Users/otis/Desktop/os-dev/ch-02/looper.raw \
+	of=/Users/otis/Desktop/os-dev/ch-02/boot_sect.flp 
+
+3.  run QEMU with the good floppy image.  It should boot, and appear to hang up (those first three bytes are the x86 instruction to jump forever)
+
+	$ /usr/local/var/homebrew/linked/qemu/bin/qemu-system-i386 boot_sect.flp 
+
+4.  modify the disk image to end without the magic number of 0xaa55, (e.g. 0xaf55).  QEMU should fail to find a boot device.
+
+	$ /usr/local/var/homebrew/linked/qemu/bin/qemu-system-i386 boot_sect_bad.flp 

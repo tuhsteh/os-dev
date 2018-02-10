@@ -1,0 +1,24 @@
+# Disk DescriptorFile
+version=1
+CID=a0ee2f3d
+parentCID=ffffffff
+createType="fullDevice"
+
+# Extent description
+RW 1 FLAT "looper.raw" 0
+
+# The disk Data Base 
+#DDB
+
+ddb.virtualHWVersion = "4"
+ddb.adapterType="ide"
+ddb.uuid.image="c063cda6-eafc-4666-b5d4-0f54cba27b3b"
+ddb.uuid.parent="00000000-0000-0000-0000-000000000000"
+ddb.uuid.modification="00000000-0000-0000-0000-000000000000"
+ddb.uuid.parentmodification="00000000-0000-0000-0000-000000000000"
+ddb.geometry.cylinders="1"
+ddb.geometry.heads="16"
+ddb.geometry.sectors="63"
+ddb.geometry.biosCylinders="1"
+ddb.geometry.biosHeads="16"
+ddb.geometry.biosSectors="63"
