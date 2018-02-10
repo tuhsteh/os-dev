@@ -3,7 +3,7 @@
 ; a BIOS routine
 ;
 
-  mov ah, 0x0e         ; int 10/ah = 0eh -> scrolling teletupe BIOS routine
+  mov ah, 0x0e         ; int 10/ah = 0eh -> scrolling teletype BIOS routine
   mov al, 'H'
   int 0x10
   mov al, 'e'
